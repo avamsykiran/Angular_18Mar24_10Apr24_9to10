@@ -11,7 +11,7 @@ class NumberSeries {
             (resolve, reject) => {
 
                 if (this.lb > this.ub) {
-                    reject(`${this.lb} is greter than ${this.ub}, hence not valid to generte series`)
+                    reject(`${this.lb} is greter than ${this.ub}, hence not valid to generate series`)
                     return;
                 }
 
