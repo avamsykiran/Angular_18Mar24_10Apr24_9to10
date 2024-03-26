@@ -5,7 +5,7 @@ interface AddressDetails {
     state:string;
 }
 
-type Address = string | AddressDetails;
+type Address = string | AddressDetails; //union
 
 abstract class Employee{
     firstName:string;
