@@ -344,9 +344,56 @@ Angular 15
 
         One-way Data Binding
             Attribute Binding
+
+                <tag-name [attribute-name]="angular-expression"> </tag-name>
+
+                <p title="abcd"></p>            the title's value is 'abcd'
+                <p [title]="abcd"></p>          the title is assigned the value of the field abcd
+
             Event Binding
+
+                <tag-name (event-attribute-directive)="method($event)"></tag-name>
+
+                $event is a built-in object that carries data emited by the event
+
+                html-event-attributes           angular-event-attribute-directives
+                ----------------------------------------------------------------------------
+                    onclick                         click
+                    ondblclick                      dblClick
+                    onblur                          blur
+                    onfocus                         focus
+                    onchange                        change
+                    onmouseover                     mouseOver
+                    onmousedown                     mouseDown
+                    onkeyup                         keyUp
+                    onkeydown                       keyDown
+                    onsubmit                        ngSubmit
+                    onload                          load
+
             Css Style Binding
+
+                <tag-name [style.cssProperty]="angular-expression"></tag-name>
+
+                using 'ngStyle' attribute directive
+
+                    <tag-name [ngStyle]="styleObject"></tag-name>
+
+                    styleObject must be a json object where the css-properties are keys
+                    and their values are values
+
+                    let styleObject = {'css-property':value,....};
+
             Css Class Binding
     
+                <tag-name [class.className]="angular-boolean-expression"></tag-name>
 
-        
+                using 'ngClass' attribute directive
+
+                    <tag-name [ngClass]="arrayOfClasses"></tag-name>
+
+                    let arrayOfClasses = ['css-class1','css-class2'];
+                    
+                    <tag-name [ngClass]="classesObject"></tag-name>
+
+                    let classesObject = {cssClass1:booleanExpression1,cssClass2::booleanExpression2};
+

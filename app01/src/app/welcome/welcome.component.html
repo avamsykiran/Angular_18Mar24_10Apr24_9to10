@@ -1,12 +1,40 @@
 <section class="card">
     <h4>Welcome </h4>
 
+    <div>
+        <img 
+            [src]="banners[bannerIndex]" 
+            (click)="shift()"
+            [style.width.px]="bannerWidth" 
+            [class.bordered]="applyBordered"
+            [class.centered]="applyCentered"/>
+        
+       <img 
+            [src]="banners[bannerIndex]" 
+            (click)="shift()"
+            [ngStyle]="{'width.px':bannerWidth}"
+            [ngClass]="{centered:applyCentered,bordered:applyBordered}" />   
+
+    </div>
+
     <p>Hai <strong>{{userName}}</strong>! We are happy to have you here!</p>
 
     <form>
         <div>
             <label>User Name:</label>
             <input type="text" name="tb1" [(ngModel)]="userName" />
+        </div>
+        <div>
+            <label>Banner Width: {{bannerWidth}} px </label>
+            <input type="range" name="tb2" [(ngModel)]="bannerWidth" min="100" max="500" />
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="tb3" [(ngModel)]="applyBordered"/> Apply Border
+            </label>
+            <label>
+                <input type="checkbox" name="tb4" [(ngModel)]="applyCentered"/> Align Center
+            </label>
         </div>
     </form>
 </section>
