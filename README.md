@@ -397,3 +397,68 @@ Angular 15
 
                     let classesObject = {cssClass1:booleanExpression1,cssClass2::booleanExpression2};
 
+    Attribute Directives
+
+        built-in
+            
+            click,dblClick,mouseOver ...etc.,
+            ngModel,ngForm from FormsModule
+            routerLink,routerLinkActive from RouterModule
+            formControl,formControlName,formGroup from ReactiveFormsModule
+            ...etc.,
+
+        custom
+
+            ng g directive FastMovingStock --skip-tests
+
+            @Directive({
+                selector:'[appFastMovingStock]'
+            })
+            class FastMovingStockDirective {
+                constructor(private ele:ElementRef){
+
+                }
+            }
+
+            @HostListener("eventname")
+                is a decorator used on a method, so that the method can
+                be invoekd when an event occurs on the underlying element.
+
+            @Input()
+                is used to mark a field of the class to receive data from the element.
+            
+            <tag-name appFastMovingStock> </tag-name>
+            <tag-name appFastMovingStock=""> </tag-name>
+            <tag-name [appFastMovingStock]=""> </tag-name>
+
+    Structural Directives
+
+        *ngIf
+
+            <ng-template [ngIf]="angular-boolean-expression">
+                <p> this para will apper only if the boolean expression evalautes to true</p>
+            </ng-template>
+
+            <p *ngIf="angular-boolean-expression"> 
+                this para will apper only if the boolean expression evalautes to true
+            </p>
+
+        *ngFor
+            <ng-template [ngFor]="let loopingVar of array">
+                <p> this para will be created one for each ele in that array</p>
+            </ng-template>
+
+            <p *ngFor="let loopingVar of array"> 
+                this para will be created one for each ele in that array
+            </p>
+
+        ngSwitch    *ngSwitchCase *ngDefault
+
+            <div [ngSwitch]="angular-expression">
+                <p *ngSwitchCase="value1"> appears if the expression evalautes to value1 </p>
+                <p *ngSwitchCase="value2"> appears if the expression evalautes to value2 </p>
+                <p *ngSwitchCase="value3"> appears if the expression evalautes to value3 </p>
+                <p *ngSwitchCase="value4"> appears if the expression evalautes to value4 </p>
+                <p *ngDefault> appears if none of the above values match the expression result</p>
+            </div>
+
