@@ -462,3 +462,34 @@ Angular 15
                 <p *ngDefault> appears if none of the above values match the expression result</p>
             </div>
 
+    Pipes
+    
+        A pipe is used to transform a value.
+
+            {{ expression | pipe-name : param1 : param2}}
+
+        in-built pipes
+
+            lowercase
+            uppercase
+            titlecase
+            number
+            currency
+            date
+            json
+            async
+
+        custom pipe
+    
+            ng g pipe PipeName --skip-tests
+
+                @Pipe({
+                    name:'',
+                    providers:[]
+                })
+                class InWordsPipe implements PipeTransfomr {
+                    transform(value:any,...params:any):any {
+                        //here goes the code..
+                        return transformedValue;
+                    }
+                }
