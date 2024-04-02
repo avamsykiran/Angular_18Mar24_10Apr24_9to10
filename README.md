@@ -493,3 +493,53 @@ Angular 15
                         return transformedValue;
                     }
                 }
+
+    Integrating Bootstrap
+
+        Bootstrap is a CSS library that offer responsive web design.
+
+        npm i bootstrap
+
+        include the below paths in angular.json file 
+
+        node_modules/bootstrap/dist/css/bootstrap.min.css   under 'styles' section
+        node_modules/bootstrap/dist/js/bootstrap.min.js     under 'scripts' section
+
+    Routing
+
+        Routing allows us to map a path to each component and whenever that mapped path
+        is in the url, the respective component alone can be showed .
+
+        RouterModule from '@angular/router'.
+
+        Routes                  Route[]
+
+        Route                   model class     {
+                                                    path:'',
+                                                    component: C,
+                                                    redirect:'',
+                                                    pathMatch:'startsWith|full'
+                                                }
+
+        forRoot                 method          used to load routes into RouterModule
+
+        router-outlet           component       reserves space for output of the Router
+
+        Router                  service         used to navigate programatically
+                                                .navigateByUrl("")
+                                                .navigate([])
+
+                                                router.navigateByUrl("/home")
+                                                router.navigateByUrl("/sales/invoice/1234")
+
+                                                router.navigate(["/home"])
+                                                router.navigate(["/sales","invoice",1234])
+
+        routerLink              directive       used on 'a' elements instead of its 'href' attribute.
+
+        routerLinkActive        directive       used to apply a given 'css-class' only on active link.
+
+    Services
+
+        is a class that holds bussiness logic and is injected
+        anywhere on demand.
