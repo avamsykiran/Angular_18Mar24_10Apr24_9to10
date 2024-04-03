@@ -1,0 +1,49 @@
+<section class="col-10 mx-auto m-2 border border-secondary p-3">
+    <h4>Services Demo</h4>
+
+    <div class="row mt-3">
+        <div class="col-3">
+            <form (ngSubmit)="formSubmitted()" #loanForm="ngForm">
+                <div class="form-group">
+                    <label>Loan Amount</label>
+                    <input type="number" name="tb1" [(ngModel)]="loan.loanAmount" class="form-control" required min="10000" #loanAmount="ngModel"/>
+                    <div class="alert alert-danger p-2 m-2" *ngIf="loanAmount.invalid && (loanAmount.touched || loanAmount.dirty)">
+                        <p *ngIf="loanAmount.errors!['required']">Loan Amount is a mandatory field</p>
+                        <p *ngIf="loanAmount.errors!['min']">Loan Amount must be a minimum of 10000</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Rate Of Interest</label>
+                    <input type="number" name="tb2" [(ngModel)]="loan.roi" class="form-control" required min="1" #roi="ngModel"/>
+                    <div class="alert alert-danger p-2 m-2" *ngIf="roi.invalid && (roi.touched || roi.dirty)">
+                        <p *ngIf="roi.errors!['required']">Rate Of Interest is a mandatory field</p>
+                        <p *ngIf="roi.errors!['min']">Rate Of Interest must be a minimum of 1%</p>
+                    </div>
+                </div>
+                <div class="d-grid mt-1">
+                    <button class="btn btn-primary" [disabled]="loanForm.invalid">COMPUTE</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Tenure</th>
+                        <th>EMI Start Date</th>
+                        <th>EMI End Date</th>
+                        <th>EMI Amount</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="loan.options.length>0">
+                    <tr *ngFor="let opt of loan.options">
+                        <td>{{opt.tenure}}</td>
+                        <td>{{opt.startDate|date:'dd-MMM-yyyy'}}</td>
+                        <td>{{opt.endDate|date:'dd-MMM-yyyy'}}</td>
+                        <td>{{opt.emi|currency:'INR'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

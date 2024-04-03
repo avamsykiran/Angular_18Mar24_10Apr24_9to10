@@ -22,7 +22,7 @@ export class LoanService {
       startDate:startDate,
       endDate:new Date(today.getFullYear(),today.getMonth()+tenure,today.getDate()),
       emi: (loanAmount*roi)/tenure
-    });
+    }));
 
     return loan;
   }

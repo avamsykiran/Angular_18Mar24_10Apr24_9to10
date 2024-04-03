@@ -10,12 +10,14 @@ import { HighlightDirective } from './highlight.directive';
 import { PipesDemoComponent } from './pipes-demo/pipes-demo.component';
 import { InWordsPipe } from './in-words.pipe';
 import { NoSuchPathComponent } from './no-such-path/no-such-path.component';
+import { LoanComponent } from './loan/loan.component';
 
 const routes :Routes = [
   {path:'',pathMatch:'full',redirectTo:'/wc'},
   {path:'wc',component:WelcomeComponent},
   {path:'ddc',component:DirectivesDemoComponent},
   {path:'pdc',component:PipesDemoComponent},
+  {path:'loan',component:LoanComponent},
   {path:'**',component:NoSuchPathComponent}
 ];
 
@@ -27,7 +29,8 @@ const routes :Routes = [
     HighlightDirective,
     PipesDemoComponent,
     InWordsPipe,
-    NoSuchPathComponent
+    NoSuchPathComponent,
+    LoanComponent
   ],
   imports: [
     BrowserModule,

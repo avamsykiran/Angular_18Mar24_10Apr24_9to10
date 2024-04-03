@@ -543,3 +543,45 @@ Angular 15
 
         is a class that holds bussiness logic and is injected
         anywhere on demand.
+
+    Template Driven Forms
+
+        a template driven form is constructed entirly on the component template.
+
+        FormsModule from '@angular/forms'
+
+            ngForm          valid,invalid
+            ngModel         valid,invalid
+                            touched,untouched
+                            dirty,prestine
+
+    Reactive Forms / Model Driven Forms
+
+        The form skeleton is created as a model in the component class
+        and its DOM is created in the component template
+
+        Testing such form easier.
+
+        Reactive forms also offer better validation framework and also supported
+        nested objects.
+
+        interface Address {
+            street:string;
+            city:string;
+            state:string;
+        }
+
+        interface Consumer {
+            id:number;
+            fullName:string;
+            dateOfJoining:Date;
+            address:Address;
+        }
+
+        ReactiveFormsModule from '@angular/forms'
+
+            FormGroup               valid,invalid
+            FormControl             valid,invalid
+                                    touched,untouched
+                                    dirty,prestine
+            formControlName

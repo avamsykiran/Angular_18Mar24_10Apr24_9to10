@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Link{
-  label:string;
-  path:string;
-}
+import { Link } from './models/link';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +11,10 @@ export class AppComponent {
   links:Link[];
 
   constructor(){
-    this.title="My Second Angular APP";
+    this.title="AddressBook 1.0";
     this.links=[
-      {path:"/wc",label:"Welcome"},
-      {path:"/ddc",label:"Directives Demo"},
-      {path:"/pdc",label:"Pipes Demo"},
-      {path:"/loan",label:"Loans Example"}
+      {path:"/list",label:"Contacts"},
+      {path:"/add",label:"New Contact"}
     ];
   }
 }
