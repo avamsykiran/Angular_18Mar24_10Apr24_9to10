@@ -539,6 +539,9 @@ Angular 15
 
         routerLinkActive        directive       used to apply a given 'css-class' only on active link.
 
+        ActivatedRoute          service         used to extract pathVariables or
+                                                queryParams or any other data of the url.
+
     Services
 
         is a class that holds bussiness logic and is injected

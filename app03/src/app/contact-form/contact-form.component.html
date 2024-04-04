@@ -1,1 +1,47 @@
-<p>contact-form works!</p>
+<section class=" col-sm-4 border border-primary mx-auto p-4 m-2">
+    <h4> {{isEditing?"Edit ":"New" }} Contact</h4>
+
+    <form (ngSubmit)="formSubmitted()" [formGroup]="contactForm">
+        <div class="form-control">
+            <label class="form-label">Contact Id</label>
+            <input type="text" formControlName="id" readonly class="form-control" />
+        </div>
+        <div class="form-control">
+            <label class="form-label">Full Name</label>
+            <input type="text" formControlName="fullName" class="form-control" />
+            <div class="alert alert-danger p-2" *ngIf="fullNameFC.invalid && (fullNameFC.dirty || fullNameFC.touched)">
+                <span *ngIf="fullNameFC.errors!['required']">This field is mandate</span>
+                <span *ngIf="fullNameFC.errors!['minlength']">A minimum of 5 letters expected</span>
+                <span *ngIf="fullNameFC.errors!['maxlength']">A maximum of 20 letters only expected.</span>
+            </div>
+        </div>
+        <div class="form-control">
+            <label class="form-label">Mobile</label>
+            <input type="text" formControlName="mobile" class="form-control" />
+            <div class="alert alert-danger p-2" *ngIf="mobileFC.invalid && (mobileFC.dirty || mobileFC.touched)">
+                <span *ngIf="mobileFC.errors!['required']">This field is mandate</span>
+                <span *ngIf="mobileFC.errors!['pattern']">A 10 digit number expected.</span>
+            </div>
+        </div>
+        <div class="form-control">
+            <label class="form-label">Mail Id</label>
+            <input type="text" formControlName="mailId" class="form-control" />
+            <div class="alert alert-danger p-2" *ngIf="mailIdFC.invalid && (mailIdFC.dirty || mailIdFC.touched)">
+                <span *ngIf="mailIdFC.errors!['required']">This field is mandate</span>
+                <span *ngIf="mailIdFC.errors!['email']">A valid email id expected.</span>
+            </div>
+        </div>
+        <div class="form-control">
+            <label class="form-label">Date Of Birth</label>
+            <input type="text" formControlName="dateOfBirth" class="form-control" />
+            <div class="alert alert-danger p-2" *ngIf="dateOfBirthFC.invalid && (dateOfBirthFC.dirty || dateOfBirthFC.touched)">
+                <span *ngIf="dateOfBirthFC.errors!['required']">This field is mandate</span>
+            </div>
+        </div>
+        <div class="d-grid mt-2">
+            <button class="btn btn-primary" [disabled]="contactForm.invalid">
+                {{isEditing?"UPDATE ":"ADD " }} CONTACT
+            </button>
+        </div>
+    </form>
+</section>
