@@ -588,3 +588,62 @@ Angular 15
                                     touched,untouched
                                     dirty,prestine
             formControlName
+
+    Assignment
+
+        Develop an angular power SPA to perform CRUD Operations on Employee.
+        Where Employee has id,fullName,salary,dateOfJoining,mobile,mailId as 
+        fields.
+
+    Json-Server
+
+        is a javascript library that generates a fake rest-api based on a .json file as persisence layer.
+
+        md adb-api
+        cd adb-api
+        npm init -y
+        npm i json-server@0.17.4
+
+        adb-api/data.json
+
+        in package.json: "start":"json-server --watch ./data.json --port 8888"
+
+    HttpClient
+
+        is service from 'HttpClientModule' from '@angular/commons/http'
+
+        get(url) : Observable
+        post(url,reqBody): Observable
+        put(url,reqBody): Observble
+        delete(url) : Observable
+
+    Observables from 'rxjs'
+
+        Observable is an enhanced Promise
+
+        let p = new Promise((resolve,reject) => {
+            //resolve is used to signal success
+            //reject is used to signal error
+        })
+
+        p.then(successCallBack).catch(errCallBack);
+
+        let ob = new Observable( (observer) => {
+            //observer.next(data)
+            //observer.error(err)
+            //observer.complete()
+        })
+
+        ob.subscribe({
+            next: data => {},
+            error: err => {},
+            complete: () => {}
+        });
+
+
+
+
+
+
+
+    
