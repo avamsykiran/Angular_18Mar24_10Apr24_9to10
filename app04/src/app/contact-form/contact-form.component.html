@@ -33,9 +33,10 @@
         </div>
         <div class="form-control">
             <label class="form-label">Date Of Birth</label>
-            <input type="text" formControlName="dateOfBirth" class="form-control" />
+            <input type="date" formControlName="dateOfBirth" class="form-control" />
             <div class="alert alert-danger p-2" *ngIf="dateOfBirthFC.invalid && (dateOfBirthFC.dirty || dateOfBirthFC.touched)">
                 <span *ngIf="dateOfBirthFC.errors!['required']">This field is mandate</span>
+                <span *ngIf="dateOfBirthFC.errors!['maxAge']">Expected that the age must be atleast 18 years old.</span>
             </div>
         </div>
         <div class="d-grid mt-2">

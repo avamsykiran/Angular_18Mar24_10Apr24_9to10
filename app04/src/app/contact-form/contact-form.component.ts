@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ContactService } from '../services/contact.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Contact } from '../models/contact';
+import { maxAge } from '../services/CustomVAlidators';
 
 @Component({
   selector: 'app-contact-form',
@@ -34,7 +35,7 @@ export class ContactFormComponent {
     this.fullNameFC = new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(20)]);
     this.mobileFC = new FormControl("", [Validators.required, Validators.pattern("[1-9][0-9]{9}")]);
     this.mailIdFC = new FormControl("", [Validators.required, Validators.email]);
-    this.dateOfBirthFC = new FormControl("", [Validators.required]);
+    this.dateOfBirthFC = new FormControl("", [Validators.required,maxAge(18)]);
 
     this.contactForm = new FormGroup({
       id: this.idFC, fullName: this.fullNameFC, mobile: this.mobileFC, mailId: this.mailIdFC, dateOfBirth: this.dateOfBirthFC
@@ -61,4 +62,5 @@ export class ContactFormComponent {
     });
 
   }
+
 }
